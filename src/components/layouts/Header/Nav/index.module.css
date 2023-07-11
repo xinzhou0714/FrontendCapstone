@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0,1fr));
+
+}
+
+.list{
+    list-style: none;
+    display: flex;
+}
+
+.one{
+    grid-column: 3 / 5;
+}
+
+.two{
+    grid-column: 5 / 11;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
