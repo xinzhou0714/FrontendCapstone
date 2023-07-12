@@ -1,0 +1,15 @@
+.innerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(auto, 400px);
+  grid-column-gap: 20px;
+  grid-auto-flow: row;
+}
+
+@media screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .innerContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(auto, 400px);
+  }
+}

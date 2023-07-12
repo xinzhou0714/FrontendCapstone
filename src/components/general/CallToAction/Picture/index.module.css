@@ -1,0 +1,10 @@
+.cover {
+  margin: var(--group-margin);
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  /*  relative position*/
+  position: relative;
+  top: 50px;
+}
