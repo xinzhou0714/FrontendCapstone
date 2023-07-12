@@ -1,6 +1,4 @@
 /*Style for Section*/
-.container{
-    margin: 0 auto;
-    padding: 0 15px;
-    width: 1200px;
+.innerContainer {
+  grid-column: 3 / span 8;
 }
