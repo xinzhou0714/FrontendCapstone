@@ -1,25 +1,28 @@
 import React from "react";
 import styles from "./index.module.css";
 import logo from "./Logo-long.svg";
+import { Link } from "react-router-dom";
 
 const items = [
-  { key: 1, title: "Home" },
-  { key: 2, title: "About" },
-  { key: 3, title: "Menu" },
-  { key: 4, title: "Reservation" },
-  { key: 5, title: "Order online" },
-  { key: 6, title: "Login" },
+  { key: 1, title: "Home", path: "/" },
+  { key: 2, title: "About", path: "/about" },
+  { key: 3, title: "Menu", path: "/menu" },
+  { key: 4, title: "Reservation", path: "/booking" },
+  { key: 5, title: "Order online", path: "/ordering" },
+  { key: 6, title: "Login", path: "/login" },
 ];
 
 function Nav() {
   return (
     <nav className={styles.container}>
-      <a className={styles.one} href={"/"}>
+      <Link className={styles.one} to={"/"}>
         <img src={logo} alt={""} />
-      </a>
+      </Link>
       <ul className={[styles.list, styles.two].join(" ")}>
         {items.map((item) => (
-          <li key={item.key}>{item.title}</li>
+          <li key={item.key}>
+            <Link to={item.path}>{item.title}</Link>
+          </li>
         ))}
       </ul>
     </nav>

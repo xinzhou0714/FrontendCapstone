@@ -1,7 +1,8 @@
 import React from "react";
+import SectionItem from "../../layouts/SectionItem";
 
 function BookingPage() {
-  return <>Booking page</>;
+  return <SectionItem>Booking page</SectionItem>;
 }
 
 export default BookingPage;
