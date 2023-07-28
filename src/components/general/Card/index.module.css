@@ -3,7 +3,6 @@
   flex-direction: column;
   background-color: var(--secondary-color3);
   min-height: 30rem;
-  min-width: 20rem;
   border-radius: 1rem;
 }
 
