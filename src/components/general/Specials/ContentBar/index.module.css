@@ -1,0 +1,12 @@
+.innerContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .innerContainer {
+    grid-template-columns: 1fr;
+  }
+}
