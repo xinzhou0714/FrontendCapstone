@@ -1,7 +1,12 @@
 import React from "react";
+import Card from "@/components/general/Card";
 
-function ContentBar(props) {
-  return <div>Content</div>;
+function ContentBar() {
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 }
 
 export default ContentBar;
