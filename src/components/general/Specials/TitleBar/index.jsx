@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import Button from "../../Button";
 
-function TitelBar(props) {
+function TitleBar(props) {
   return (
     <div className={styles.flex}>
       <h3>Specials</h3>
@@ -11,4 +11,4 @@ function TitelBar(props) {
   );
 }
 
-export default TitelBar;
+export default TitleBar;
