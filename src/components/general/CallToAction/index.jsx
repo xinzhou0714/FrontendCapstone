@@ -7,7 +7,7 @@ import Picture from "./Picture";
 function CallToAction() {
   const cssOverrides = {
     backgroundColor: "var(--primary-color1)",
-    marginBottom: "80px",
+    marginBottom: "5rem",
   };
   return (
     <SectionItem cssOverrides={cssOverrides}>

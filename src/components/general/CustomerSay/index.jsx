@@ -6,6 +6,7 @@ import ContentBar from "./ContentBar";
 function CustomerSay() {
   const cssOverrides = {
     backgroundColor: "var(--primary-color1)",
+    paddingBottom: "5rem",
   };
   return (
     <SectionItem cssOverrides={cssOverrides}>
