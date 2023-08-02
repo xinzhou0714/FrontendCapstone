@@ -1,0 +1,22 @@
+.marioImage {
+  width: 20rem;
+  height: 25rem;
+}
+
+.imageStack {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  position: relative;
+}
+
+.top {
+  grid-column: 1 / span 8;
+  grid-row: 1;
+  padding-top: 20%;
+  z-index: 1;
+}
+
+.bottom {
+  grid-column: 4 / -1;
+  grid-row: 1;
+}
