@@ -1,14 +1,68 @@
-.outerContainer{
-    /*12-column-grid start*/
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    padding: 0 75px;
-    grid-column-gap: 20px;
-    /*12-column-grid end*/
-    background-color: var(--primary-color1);
+.outer {
+  /*12-column-grid start*/
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column-gap: 20px;
+  /*12-column-grid end*/
+  background-color: var(--primary-color1);
 }
 
 /*Style for Section*/
-.innerContainer {
-    grid-column: 3 / span 8;
+.inner {
+  grid-column: 3 / span 8;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 2rem 0;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+
+.child {
+  grid-column: span 3;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1366px) {
+  .inner {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .inner {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/*style for list*/
+.list{
+  padding: 2rem 0;
+  list-style: none;
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.list li{
+  margin-bottom: 1rem;
+}
+
+.list a{
+  text-decoration: none;
+}
+
+.list a:visited{
+  color: white;
 }

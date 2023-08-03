@@ -1,4 +1,5 @@
 .marioImage {
+  border-radius: 1rem;
   width: 20rem;
   height: 25rem;
 }
@@ -12,7 +13,7 @@
 .top {
   grid-column: 1 / span 8;
   grid-row: 1;
-  padding-top: 20%;
+  margin-top: 20%;
   z-index: 1;
 }
 

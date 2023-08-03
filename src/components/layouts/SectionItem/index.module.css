@@ -3,7 +3,7 @@
   /*12-column-grid start*/
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  padding: 0 75px;
+  /*padding: 0 75px;*/
   grid-column-gap: 20px;
   /*12-column-grid end*/
 }
