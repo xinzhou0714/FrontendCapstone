@@ -2,6 +2,18 @@ import React from "react";
 import styles from "./index.module.css";
 import logo from "./pics/logo_rect.png";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faLocationDot,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faTiktok,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
   return (
@@ -49,9 +61,21 @@ function Navigation() {
 }
 
 const infos = [
-  { key: "address", text: "Teresa Street 56, Chicago, 45214", icon: null },
-  { key: "phone", text: "(815) 970-x077 ", icon: null },
-  { key: "email", text: "uffrod2nafz@wuuvo.com", icon: null },
+  {
+    key: "address",
+    text: "Teresa Street 56, Chicago, 45214",
+    icon: <FontAwesomeIcon icon={faLocationDot} />,
+  },
+  {
+    key: "phone",
+    text: "(815) 970-x077 ",
+    icon: <FontAwesomeIcon icon={faPhone} />,
+  },
+  {
+    key: "email",
+    text: "uffrod2nafz@wuuvo.com",
+    icon: <FontAwesomeIcon icon={faEnvelope} />,
+  },
 ];
 
 function Contact() {
@@ -61,7 +85,7 @@ function Contact() {
       <ul className={styles.list}>
         {infos.map((info) => (
           <li key={info.key}>
-            <span>{info.text}</span>
+            {info.icon} <span>{info.text}</span>
           </li>
         ))}
       </ul>
@@ -69,10 +93,40 @@ function Contact() {
   );
 }
 
+const medias = [
+  {
+    key: "twitter",
+    text: "twitter",
+    icon: <FontAwesomeIcon icon={faXTwitter} />,
+  },
+  {
+    key: "github",
+    text: "Github",
+    icon: <FontAwesomeIcon icon={faGithub} />,
+  },
+  {
+    key: "linkedin",
+    text: "Linkedin",
+    icon: <FontAwesomeIcon icon={faLinkedin} />,
+  },
+  {
+    key: "tiktok",
+    text: "Tiktok",
+    icon: <FontAwesomeIcon icon={faTiktok} />,
+  },
+];
+
 function Social() {
   return (
     <div className={styles.child}>
       <h3>Social</h3>
+      <ul className={styles.list}>
+        {medias.map((media) => (
+          <li key={media.key}>
+            {media.icon} <span>{media.text}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
