@@ -85,7 +85,9 @@ function Contact() {
       <ul className={styles.list}>
         {infos.map((info) => (
           <li key={info.key}>
-            {info.icon} <span>{info.text}</span>
+            <a>
+              {info.icon} <span>{info.text}</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -97,21 +99,25 @@ const medias = [
   {
     key: "twitter",
     text: "twitter",
+    url: "https://twitter.com/",
     icon: <FontAwesomeIcon icon={faXTwitter} />,
   },
   {
     key: "github",
     text: "Github",
+    url: "https://github.com/",
     icon: <FontAwesomeIcon icon={faGithub} />,
   },
   {
     key: "linkedin",
     text: "Linkedin",
+    url: "https://www.linkedin.com/",
     icon: <FontAwesomeIcon icon={faLinkedin} />,
   },
   {
     key: "tiktok",
     text: "Tiktok",
+    url: "https://www.tiktok.com/",
     icon: <FontAwesomeIcon icon={faTiktok} />,
   },
 ];
@@ -123,7 +129,9 @@ function Social() {
       <ul className={styles.list}>
         {medias.map((media) => (
           <li key={media.key}>
-            {media.icon} <span>{media.text}</span>
+            <a href={media.url ?? "https://www.baidu.com"} target="_blank">
+              {media.icon} <span>{media.text}</span>
+            </a>
           </li>
         ))}
       </ul>

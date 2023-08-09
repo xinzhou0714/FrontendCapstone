@@ -44,9 +44,8 @@
   }
 }
 
-
 /*style for list*/
-.list{
+.list {
   padding: 2rem 0;
   list-style: none;
   min-height: 20rem;
@@ -55,14 +54,15 @@
   justify-content: start;
 }
 
-.list li{
+.list li {
   margin-bottom: 1rem;
 }
 
-.list a{
+.list a {
   text-decoration: none;
+  color: white;
 }
 
-.list a:visited{
+.list a:visited {
   color: white;
 }
