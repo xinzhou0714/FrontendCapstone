@@ -60,3 +60,61 @@ section {
   --section-margin: 75px;
   --group-margin: 20px;
 }
+
+/*global setting for fonts*/
+/*Display Title*/
+.display-title {
+  font-family: "Markazi Text", serif;
+  font-size: 64pt;
+  font-weight: 500; /* Medium */
+}
+
+/*Sub Title*/
+.sub-title {
+  font-family: "Markazi Text", serif;
+  font-size: 40pt;
+  font-weight: 400; /* Regular */
+}
+
+/*Lead Text*/
+.lead-text {
+  font-family: "Karla", sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 18pt;
+}
+
+/*Section Title*/
+.section-title {
+  text-transform: uppercase;
+  font-family: "Karla", sans-serif;
+  font-weight: 800; /* extra bold */
+  font-size: 20pt;
+}
+/*Section Categories*/
+.section-text {
+  font-family: "Karla", sans-serif;
+  font-weight: 800; /* extra bold */
+  font-size: 16pt;
+}
+
+/*Card Title*/
+.card-title {
+  font-family: "Karla", sans-serif;
+  font-weight: 700; /* bold */
+  font-size: 18pt;
+}
+
+/*Card Text*/
+.card-text {
+  font-family: "Karla", sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 16pt;
+  line-height: 1.5;
+}
+/*Price Text*/
+.price-text {
+  font-family: "Karla", sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 16pt;
+  color: var(--primary-color1);
+}
