@@ -9,14 +9,19 @@
 }
 
 .innerContainer {
+  /*as child element*/
   grid-column: 3 / span 8;
+  /*as container*/
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .outerContainer {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   .innerContainer {
-    grid-column: span 4;
+    /*as child element*/
+    grid-column: 2 / -2;
+    /*as container*/
+    /*  will be specified in separate components*/
   }
 }
