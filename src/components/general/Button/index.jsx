@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 function Button(props) {
   const { caption } = props;
   return (
-    <button className={styles.primaryButton} type={"button"}>
+    <button className={[styles.primaryButton].join(" ")} type={"button"}>
       <span className={"section-text"}>{caption}</span>
     </button>
   );
