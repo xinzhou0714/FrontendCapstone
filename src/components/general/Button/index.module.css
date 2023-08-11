@@ -1,6 +1,7 @@
 .primaryButton {
   background-color: var(--primary-color2);
   color: var(--primary-color1);
-  border-radius: 16px;
-  padding: 8px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border:  1px solid transparent;
 }

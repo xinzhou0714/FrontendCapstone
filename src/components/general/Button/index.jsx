@@ -5,7 +5,7 @@ function Button(props) {
   const { caption } = props;
   return (
     <button className={styles.primaryButton} type={"button"}>
-      {caption}
+      <span className={"section-text"}>{caption}</span>
     </button>
   );
 }
