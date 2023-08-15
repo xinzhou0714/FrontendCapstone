@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMotorcycle } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   const { imgUrl, title, price, description } = props;
@@ -45,11 +46,11 @@ function CardContent(props) {
 
 function CardFooter() {
   return (
-    <div className={styles.footer}>
+    <Link className={styles.footer} to={"/ordering"}>
       <span className={"default-text-bold"}>Order a delivery</span>
       <span className={"default-text"}>
         <FontAwesomeIcon icon={faMotorcycle} />
       </span>
-    </div>
+    </Link>
   );
 }
