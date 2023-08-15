@@ -5,7 +5,7 @@ function Button(props) {
   const { caption } = props;
   return (
     <button className={[styles.primaryButton].join(" ")} type={"button"}>
-      <span className={"section-text"}>{caption}</span>
+      <span className={"section-categories"}>{caption}</span>
     </button>
   );
 }

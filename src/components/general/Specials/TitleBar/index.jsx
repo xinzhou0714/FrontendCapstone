@@ -4,8 +4,8 @@ import Button from "../../Button";
 
 function TitleBar() {
   return (
-    <div className={[styles.flex, "section-text"].join(" ")}>
-      <h3>This Week's Specials</h3>
+    <div className={[styles.flex].join(" ")}>
+      <h3 className={"section-categories"}>This Week's Specials</h3>
       <Button caption={"online menu"} />
     </div>
   );
