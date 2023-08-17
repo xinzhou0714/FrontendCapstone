@@ -4,6 +4,7 @@
   background-color: var(--secondary-color3);
   min-height: 30rem;
   border-radius: 1rem;
+  overflow: hidden; /* image  */
 }
 
 .image {
@@ -11,6 +12,10 @@
   height: 12rem;
   border-radius: 1rem;
   object-fit: cover;
+}
+
+.image:hover{
+  transform: scale(1.05);
 }
 
 .head {

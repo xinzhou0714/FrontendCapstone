@@ -101,12 +101,14 @@ section {
   font-family: "Karla", sans-serif;
   font-weight: 800; /* extra bold */
   font-size: 20pt;
+  padding: 1rem 0;
 }
 /*Section Categories*/
 .section-categories {
   font-family: "Karla", sans-serif;
   font-weight: 800; /* extra bold */
   font-size: 16pt;
+  padding: 1rem 0;
 }
 
 /*Card Title*/

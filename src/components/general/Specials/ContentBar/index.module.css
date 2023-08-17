@@ -4,7 +4,7 @@
   grid-column-gap: 2rem;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1440px) {
   /* For mobile phones: */
   .innerContainer {
     grid-template-columns: 1fr 1fr;
@@ -12,7 +12,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   /* For mobile phones: */
   .innerContainer {
     grid-template-columns: 1fr;
