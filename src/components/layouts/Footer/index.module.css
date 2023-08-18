@@ -24,6 +24,8 @@
 .logo {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  padding: 1.25rem 0;
 }
 
 @media screen and (max-width: 1366px) {
@@ -64,5 +66,9 @@
 }
 
 .list a:visited {
+  color: white;
+}
+
+.white {
   color: white;
 }

@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color3);
+  min-width: 12rem;
+  min-height: 30rem;
+  border-radius: 1rem;
+  overflow: hidden; /* image  */
+  align-items: center;
+}
+
+.image {
+  width: 10rem;
+  border-radius: 50%;
+  margin: 1rem auto 1rem auto;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.stretch {
+  height: 100%;
+  align-self: stretch;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}

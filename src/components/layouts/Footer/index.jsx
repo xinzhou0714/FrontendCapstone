@@ -46,7 +46,9 @@ const items = [
 function Navigation() {
   return (
     <div className={styles.child}>
-      <h3>Navigation</h3>
+      <h3 className={["section-categories", styles.white].join(" ")}>
+        Navigation
+      </h3>
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item.key}>
@@ -81,7 +83,9 @@ const infos = [
 function Contact() {
   return (
     <div className={styles.child}>
-      <h3>Contact</h3>
+      <h3 className={["section-categories", styles.white].join(" ")}>
+        Contact
+      </h3>
       <ul className={styles.list}>
         {infos.map((info) => (
           <li key={info.key}>
@@ -125,7 +129,7 @@ const medias = [
 function Social() {
   return (
     <div className={styles.child}>
-      <h3>Social</h3>
+      <h3 className={["section-categories", styles.white].join(" ")}>Social</h3>
       <ul className={styles.list}>
         {medias.map((media) => (
           <li key={media.key}>
