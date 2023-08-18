@@ -15,6 +15,7 @@
   padding: 2rem 0;
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
+  grid-auto-rows: min-content;
 }
 
 .child {
@@ -50,7 +51,7 @@
 .list {
   padding: 2rem 0;
   list-style: none;
-  min-height: 20rem;
+  /*min-height: 20rem;*/
   display: flex;
   flex-direction: column;
   justify-content: start;
