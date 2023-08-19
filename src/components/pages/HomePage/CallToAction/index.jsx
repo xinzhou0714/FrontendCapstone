@@ -1,8 +1,9 @@
 import React from "react";
-import SectionItem from "../../layouts/SectionItem";
+
 import Description from "./Description";
 import Picture from "./Picture";
 import styles from "./index.module.css";
+import SectionItem from "@/components/layouts/SectionItem";
 
 function CallToAction() {
   const cssOverrides = {

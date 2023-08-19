@@ -1,8 +1,9 @@
 import React from "react";
-import CallToAction from "../../general/CallToAction";
-import Specials from "../../general/Specials";
-import CustomerSay from "../../general/CustomerSay";
-import Chicago from "../../general/Chicago";
+
+import CallToAction from "@/components/pages/HomePage/CallToAction";
+import Specials from "@/components/pages/HomePage/Specials";
+import Chicago from "@/components/pages/HomePage/Chicago";
+import CustomerSay from "@/components/pages/HomePage/CustomerSay";
 
 function HomePage() {
   return (

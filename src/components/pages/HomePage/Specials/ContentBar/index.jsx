@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./index.module.css";
-import Card from "../../Card";
+import Card from "../../../../general/Card";
 import saladUrl from "./pics/greek salad.jpg";
 import bruchettaUrl from "./pics/bruchetta.svg";
 import dessertUrl from "./pics/lemon dessert.jpg";
 
-function ContentBar(props) {
+function ContentBar() {
   const items = [
     {
       title: "Greek Salad",

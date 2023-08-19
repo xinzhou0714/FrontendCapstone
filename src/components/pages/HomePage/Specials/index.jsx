@@ -1,12 +1,11 @@
 import React from "react";
-import SectionItem from "../../layouts/SectionItem";
+import SectionItem from "../../../layouts/SectionItem";
 import TitleBar from "./TitleBar";
 import ContentBar from "./ContentBar";
 
-function CustomerSay() {
+function Specials() {
   const cssOverrides = {
-    backgroundColor: "var(--primary-color1)",
-    paddingBottom: "5rem",
+    marginBottom: "80px",
   };
   return (
     <SectionItem cssOverrides={cssOverrides}>
@@ -16,4 +15,4 @@ function CustomerSay() {
   );
 }
 
-export default CustomerSay;
+export default Specials;

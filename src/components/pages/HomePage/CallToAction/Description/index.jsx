@@ -13,7 +13,9 @@ function Description() {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={"display-title"}>Little lemon</h1>
+      <h1 className={["display-title", styles.color].join(" ")}>
+        Little lemon
+      </h1>
       <h3 className={"sub-title"}>Chicage</h3>
       <p className={"lead-text"} style={{ padding: "1rem 0" }}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab at aut

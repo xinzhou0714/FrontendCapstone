@@ -1,17 +1,16 @@
 import React from "react";
-
-import TitelSection from "@/components/general/TitelSection";
 import SectionItem from "@/components/layouts/SectionItem";
+import TitelSection from "@/components/general/TitelSection";
 
-function BookingPage() {
+function MenuPage() {
   const cssOverrides = {
     backgroundColor: "var(--primary-color1)",
   };
   return (
     <SectionItem cssOverrides={cssOverrides}>
-      <TitelSection title={"Reservation"} />
+      <TitelSection title={"Menu"} />
     </SectionItem>
   );
 }
 
-export default BookingPage;
+export default MenuPage;
