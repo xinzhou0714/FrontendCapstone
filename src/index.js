@@ -4,13 +4,25 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+
+const emotionCache = createCache({
+  key: "emotion-css-cache",
+  prepend: true, // ensures styles are prepended to the <head>, instead of appended
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <CacheProvider value={emotionCache}>
+      <ChakraProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
+    </CacheProvider>
   </React.StrictMode>
 );
 

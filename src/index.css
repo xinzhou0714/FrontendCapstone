@@ -133,3 +133,21 @@ section {
   font-size: 16pt;
   color: var(--primary-color1);
 }
+
+.inter-medium {
+  font-family: "Inter", sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 14pt;
+}
+
+.inter-semi-bold {
+  font-family: "Inter", sans-serif;
+  font-weight: 600; /* semi-bold */
+  font-size: 15pt;
+}
+
+.inter-bold {
+  font-family: "Inter", sans-serif;
+  font-weight: 700; /* bold */
+  font-size: 18pt;
+}
