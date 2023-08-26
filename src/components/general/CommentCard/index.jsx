@@ -37,7 +37,9 @@ function CardRate(props) {
       {!!rating
         ? Array(rating)
             .fill(0)
-            .map(() => <FontAwesomeIcon icon={faStar} color={"#f4ce14"} />)
+            .map((value, index) => (
+              <FontAwesomeIcon key={index} icon={faStar} color={"#f4ce14"} />
+            ))
         : null}
     </div>
   );

@@ -1,7 +1,12 @@
 import React from "react";
+import { BookingProvider } from "@/context/bookingContext";
 
 function Main(props) {
-  return <main>{props.children}</main>;
+  return (
+    <BookingProvider>
+      <main>{props.children}</main>
+    </BookingProvider>
+  );
 }
 
 export default Main;

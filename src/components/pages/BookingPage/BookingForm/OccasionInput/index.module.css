@@ -1,0 +1,11 @@
+.flexSpace {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color3);
+    border-radius: 1rem;
+}
+
+.icon {
+    padding: 1rem;
+}
