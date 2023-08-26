@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 // utils func
-const isFocusedMonth = (dateStr) => {};
+
 const getDayList = (dateStr) => {
   const date = new Date(dateStr);
   const dateFirst = new Date(date.getFullYear(), date.getMonth(), 1); // the first day of month
@@ -65,22 +65,22 @@ function DateInput(props) {
     }
   };
   const goPrevMonth = () => {
-    const datePrev = new Date(value);
-    datePrev.setMonth(datePrev.getMonth() - 1);
-    const yearPrev = datePrev.getFullYear();
-    const monthPrev = datePrev.getMonth();
-    const dateLast = new Date(
-      yearPrev,
-      monthPrev,
-      42 - new Date(yearPrev, monthPrev, 42).getDate()
-    );
-    const dateNow = new Date();
-    if (dateLast > dateNow) {
-      setValue(
-        datePrev < dateNow
-          ? dateLast.toLocaleDateString("en-CA")
-          : datePrev.toLocaleDateString("en-CA")
-      );
+    const now = new Date();
+    const date = new Date(value);
+    const [year, month, day] = [
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+    ];
+    const dateStart = new Date(year, month - 1, 1); // the first date of previous month
+    const dayCountPrev = getDaysInMonth(dateStart.toLocaleDateString("en-CA"));
+    const dateLast = new Date(year, month - 1, dayCountPrev);
+    if (dateLast < now) {
+      // do nothing
+    } else if (day > dayCountPrev) {
+      setValue(dateLast.toLocaleDateString("en-CA"));
+    } else {
+      setValue(new Date(year, month - 1, day).toLocaleDateString("en-CA"));
     }
   };
 
@@ -92,6 +92,7 @@ function DateInput(props) {
   const { getRadioProps, getRootProps, setValue, value } = useRadioGroup({
     name: "resDate",
     onChange: handleChange,
+    defaultValue: todayStr, // important !!!
   });
   // effect hook
   useEffect(() => {
