@@ -36,6 +36,12 @@ const getDaysInMonth = (dateStr) => {
   const date = new Date(dateStr);
   return 42 - new Date(date.getFullYear(), date.getMonth(), 42).getDate();
 };
+
+const isValidDay = (dateStr) => {
+  const date = new Date(dateStr);
+  const today = new Date();
+  return date.toLocaleDateString("en-CA") >= today.toLocaleDateString("en-CA");
+};
 function DateInput(props) {
   // constants
   const weekDays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
@@ -74,13 +80,17 @@ function DateInput(props) {
     ];
     const dateStart = new Date(year, month - 1, 1); // the first date of previous month
     const dayCountPrev = getDaysInMonth(dateStart.toLocaleDateString("en-CA"));
-    const dateLast = new Date(year, month - 1, dayCountPrev);
-    if (dateLast < now) {
-      // do nothing
-    } else if (day > dayCountPrev) {
-      setValue(dateLast.toLocaleDateString("en-CA"));
-    } else {
-      setValue(new Date(year, month - 1, day).toLocaleDateString("en-CA"));
+    const dateLast = new Date(year, month - 1, dayCountPrev); //last day of previous month
+    const date2Check =
+      day < dayCountPrev ? new Date(year, month - 1, day) : dateLast;
+    const canGo = dateLast > now;
+
+    if (canGo) {
+      if (date2Check < now) {
+        setValue(now.toLocaleDateString("en-CA"));
+      } else {
+        setValue(date2Check.toLocaleDateString("en-CA"));
+      }
     }
   };
 
@@ -163,11 +173,12 @@ function DateInput(props) {
                 {...getRadioProps({ value: dayStr })}
                 className={"inter-medium"}
                 borderRadius={"1rem"}
+                isDisabled={!isValidDay(dayStr)}
                 py={2}
                 px={3}
               >
-                {/*{dayStr.slice(-2)}*/}
-                {dayStr}
+                {dayStr.slice(-2)}
+                {/*{dayStr}*/}
               </RadioBox>
             ))}
           </Grid>
@@ -189,13 +200,23 @@ function RadioBox(props) {
       <Box
         {...radioProps}
         cursor="pointer"
+        bgColor="white"
+        p={2}
+        borderRadius={8}
         _checked={{
           bg: "var(--primary-color1)",
           color: "white",
           borderColor: "teal.600",
         }}
+        _disabled={{
+          cursor: "not-allowed",
+          opacity: 0.2,
+          bgColor: "transparent",
+        }}
       >
-        <span className={"inter-medium"}>{props.children}</span>
+        <Box as="span" className={"inter-medium"} lineHeight={0.8}>
+          {props.children}
+        </Box>
       </Box>
     </Box>
   );
