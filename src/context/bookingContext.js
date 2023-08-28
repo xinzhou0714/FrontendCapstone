@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 
-const BookingContext = createContext(null);
+const BookingContext = createContext("");
 const bookedSlots = [
   {
     resDate: "2023-08-29",
