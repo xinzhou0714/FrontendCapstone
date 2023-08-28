@@ -2,7 +2,7 @@ import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
 import Main from "./components/layouts/Main";
 
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import MenuPage from "@/components/pages/MenuPage";
 import NotFoundPage from "@/components/pages/NotFoundPage";
@@ -14,7 +14,7 @@ import OrderingPage from "@/components/pages/OrderingPage";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <Main>
         <Routes>
@@ -28,7 +28,7 @@ function App() {
         </Routes>
       </Main>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
