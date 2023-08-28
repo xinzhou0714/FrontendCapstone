@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import SectionItem from "@/components/layouts/SectionItem";
-import styles from "./index.module.css";
 
-import { Box, Button, FormControl, FormLabel, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  useToast,
+  VStack,
+} from "@chakra-ui/react";
 import { useBookingContext } from "@/context/bookingContext";
 import DateInput from "@/components/pages/BookingPage/BookingForm/DateInput";
 import TimeInput from "@/components/pages/BookingPage/BookingForm/TimeInput";
@@ -10,44 +16,22 @@ import GuestInput from "@/components/pages/BookingPage/BookingForm/GuestInput";
 import OccasionInput from "@/components/pages/BookingPage/BookingForm/OccasionInput";
 
 // options for time
-const timeOptions = [
-  {
-    title: "17:00",
-    value: "17",
-  },
-  {
-    title: "18:00",
-    value: "18",
-  },
-  {
-    title: "19:00",
-    value: "19",
-  },
-  {
-    title: "20:00",
-    value: "20",
-  },
-  {
-    title: "21:00",
-    value: "21",
-  },
-  {
-    title: "22:00",
-    value: "22",
-  },
-];
-
 function BookingForm() {
   //states
   const [resDate, setResDate] = useState(
     new Date().toLocaleDateString("en-CA")
   );
-  const [resTime, setResTime] = useState("");
-  const [resGuest, setResGuest] = useState("");
+  const [resTime, setResTime] = useState("17");
+  const [resGuest, setResGuest] = useState("1");
   const [resOccasion, setResOccasion] = useState("Birthday");
   // context
-  const { state, submitNewEntry } = useBookingContext();
+  const { submitNewEntry, isAvailableTime } = useBookingContext();
 
+  // hook for message
+  const toast = useToast();
+  // utils function
+
+  // callback
   const doSubmit = (e) => {
     e.preventDefault();
     console.log("submit", {
@@ -56,8 +40,24 @@ function BookingForm() {
       resGuest: resGuest,
       resOccasion: resOccasion,
     });
-    submitNewEntry({ resDate, resTime, resGuest, resOccasion });
+    if (isAvailableTime(resDate, resTime)) {
+      toast({
+        title: "Reservation Submitted.",
+        description: "We've received your reservation",
+        status: "success",
+        duration: 3000,
+      });
+      submitNewEntry({ resDate, resTime, resGuest, resOccasion });
+    } else {
+      toast({
+        title: "Not Available",
+        description: "This time slot is not available.",
+        status: "error",
+        duration: 3000,
+      });
+    }
   };
+
   return (
     <SectionItem>
       <h3 className={"section-title"}>Reservation Details:</h3>
@@ -67,7 +67,12 @@ function BookingForm() {
             <FormLabel htmlFor={"resDate"} className={"inter-medium"}>
               Date
             </FormLabel>
-            <DateInput />
+            <DateInput
+              updateDateStr={(dateStr) => {
+                setResDate(dateStr);
+              }}
+              defaultDateStr={resDate}
+            />
           </FormControl>
           <FormControl>
             <FormLabel htmlFor={"resTime"} className={"inter-medium"}>
@@ -77,6 +82,8 @@ function BookingForm() {
               onChange={(value) => {
                 setResTime(value);
               }}
+              defaultTimeStr={resTime}
+              resDate={resDate}
             />
           </FormControl>
           <FormControl>
@@ -84,22 +91,35 @@ function BookingForm() {
               Number of guest
             </FormLabel>
             <GuestInput
-              onChange={(value) => {
-                setResGuest(value);
+              updateGuestStr={(guestStr) => {
+                setResGuest(guestStr);
               }}
+              defaultGuestStr={resGuest}
             />
           </FormControl>
           <FormControl>
             <FormLabel htmlFor={"resOccasion"} className={"inter-medium"}>
               Occasion
             </FormLabel>
-            <OccasionInput />
+            <OccasionInput
+              defaultOccasionStr={resOccasion}
+              updateOccasionStr={(occasionStr) => {
+                setResOccasion(occasionStr);
+              }}
+            />
           </FormControl>
           <Button
             onClick={doSubmit}
-            className={["inter-medium", styles.button].join(" ")}
+            width={"100%"}
+            height={"fit-content"}
+            bgColor="var(--primary-color2)"
+            color="var(--primary-color1)"
+            px="1rem"
+            border=" 3px solid var(--primary-color2)"
+            borderRadius="1rem"
+            _hover={{ bgColor: "var(--primary-color1)", color: "white" }}
           >
-            make your reservation
+            <Box className="section-categories">make your reservation</Box>
           </Button>
         </VStack>
       </Box>

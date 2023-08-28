@@ -10,6 +10,7 @@ import {
   useRadio,
   useRadioGroup,
 } from "@chakra-ui/react";
+import { useBookingContext } from "@/context/bookingContext";
 
 const options = [
   {
@@ -40,7 +41,9 @@ const options = [
 
 function TimeInput(props) {
   // props
-  const { onChange } = props;
+  const { onChange, defaultTimeStr, resDate } = props;
+  // context
+  const { isAvailableTime } = useBookingContext();
 
   // callback
   const handleChange = (value) => {
@@ -52,12 +55,14 @@ function TimeInput(props) {
   const { getRadioProps, getRootProps } = useRadioGroup({
     name: "resTime",
     onChange: handleChange,
+    defaultValue: defaultTimeStr,
   });
 
   return (
-    <Popover closeOnBlur={false} matchWidth={true}>
+    <Popover matchWidth={true} closeOnBlur={false}>
       <PopoverTrigger>
         <Box
+          cursor="pointer"
           display="flex"
           justifyContent="space-between"
           alignItems="center"
@@ -87,7 +92,11 @@ function TimeInput(props) {
         {...getRootProps}
       >
         {options.map((item) => (
-          <RadioBox key={item.label} {...getRadioProps({ value: item.time })}>
+          <RadioBox
+            key={item.label}
+            {...getRadioProps({ value: item.time })}
+            isDisabled={!isAvailableTime(resDate, item.time)}
+          >
             {item.label}
           </RadioBox>
         ))}
@@ -118,6 +127,11 @@ function RadioBox(props) {
           bg: "var(--primary-color1)",
           color: "white",
           borderColor: "teal.600",
+        }}
+        _disabled={{
+          cursor: "not-allowed",
+          opacity: 0.2,
+          bgColor: "transparent",
         }}
         _focus={{
           boxShadow: "outline",

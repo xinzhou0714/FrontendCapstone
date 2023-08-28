@@ -44,23 +44,25 @@ const options = [
 
 function GuestInput(props) {
   // props
-  const { onChange } = props;
+  const { defaultGuestStr, updateGuestStr } = props;
   // callback
-  const handleChange = (value) => {
-    onChange(value);
-    console.log(`The value got changed to ${value}!`);
+  const handleChange = (guestStr) => {
+    updateGuestStr(guestStr);
+    console.log("updateGuestStr", guestStr);
   };
 
   // hook from UI Library
-  const { getRadioProps, getRootProps } = useRadioGroup({
+  const { getRadioProps, getRootProps, value } = useRadioGroup({
     name: "resGuest",
     onChange: handleChange,
+    defaultValue: defaultGuestStr,
   });
 
   return (
-    <Popover closeOnBlur={false} matchWidth={true}>
+    <Popover matchWidth={true} closeOnBlur={false}>
       <PopoverTrigger>
         <Box
+          cursor="pointer"
           display="flex"
           justifyContent="space-between"
           alignItems="center"
@@ -72,7 +74,7 @@ function GuestInput(props) {
             icon={faPersonCirclePlus}
             className={["inter-medium"].join(" ")}
           />
-          <span className={"inter-medium"}>2 Guest</span>
+          <span className={"inter-medium"}>{value} guest(s)</span>
           <FontAwesomeIcon
             icon={faChevronDown}
             className={["inter-medium"].join(" ")}

@@ -3,15 +3,15 @@ import React, { createContext, useContext, useReducer } from "react";
 const BookingContext = createContext(null);
 const bookedSlots = [
   {
-    resDate: "2020-07-07",
+    resDate: "2023-08-29",
     resTime: "17",
-    resGuest: 5,
+    resGuest: "5",
     resOccasion: "Birthday",
   },
   {
-    resDate: "2020-07-08",
+    resDate: "2020-09-05",
     resTime: "18",
-    resGuest: 4,
+    resGuest: "42",
     resOccasion: "Anniversary",
   },
 ];
@@ -48,6 +48,17 @@ function reducer(state, action) {
 
 export const BookingProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, bookedSlots);
+  // utils function
+  const isAvailableTime = (dateStr, timeStr) => {
+    return (
+      state.filter(
+        (slot) => slot.resDate === dateStr && slot.resTime === timeStr
+      ).length === 0
+    );
+  };
+  const isAvailableDate = (dateStr) => {
+    return state.filter((slot) => slot.resDate === dateStr).length < 6;
+  };
   return (
     <BookingContext.Provider
       value={{
@@ -57,6 +68,8 @@ export const BookingProvider = ({ children }) => {
             type: "booking",
             payload: { resDate, resTime, resGuest, resOccasion },
           }),
+        isAvailableDate: isAvailableDate,
+        isAvailableTime: isAvailableTime,
       }}
     >
       {children}
