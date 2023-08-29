@@ -118,6 +118,7 @@ function BookingForm() {
             border=" 3px solid var(--primary-color2)"
             borderRadius="1rem"
             _hover={{ bgColor: "var(--primary-color1)", color: "white" }}
+            data-testid="submit-reservation"
           >
             <Box className="section-categories">make your reservation</Box>
           </Button>

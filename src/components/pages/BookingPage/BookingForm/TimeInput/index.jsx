@@ -94,6 +94,7 @@ function TimeInput(props) {
         {options.map((item) => (
           <RadioBox
             key={item.label}
+            dataTestId={item.label}
             {...getRadioProps({ value: item.time })}
             isDisabled={!isAvailableTime(resDate, item.time)}
           >
@@ -114,7 +115,7 @@ function RadioBox(props) {
 
   return (
     <Box as="label">
-      <input {...inputProps} hidden />
+      <input {...inputProps} data-testid={props.dataTestId} hidden />
       <Box
         {...radioProps}
         cursor="pointer"

@@ -174,20 +174,29 @@ function DateInput(props) {
           </Box>
           <Grid
             gridTemplateColumns="repeat(7,1fr)"
-            gridTemplateRows="repeat(7,1fr)"
             justifyItems="center"
             gap={"8px 8px"}
             pb={5}
-            {...getRootProps()}
           >
             {weekDays.map((day) => (
               <Box key={day} className={"inter-semi-bold"}>
                 {day}
               </Box>
             ))}
+          </Grid>
+          <Grid
+            gridTemplateColumns="repeat(7,1fr)"
+            gridTemplateRows="repeat(7,1fr)"
+            justifyItems="center"
+            gap={"8px 8px"}
+            pb={5}
+            {...getRootProps()}
+            data-testid="date-radio-root"
+          >
             {daysStr.map((dateStr) => (
               <RadioBox
                 key={dateStr}
+                dataTestId={dateStr}
                 {...getRadioProps({ value: dateStr })}
                 className={"inter-medium"}
                 borderRadius={"1rem"}
@@ -216,7 +225,7 @@ function RadioBox(props) {
   const radioProps = getRadioProps();
   return (
     <Box as="label">
-      <input {...inputProps} hidden />
+      <input {...inputProps} data-testid={props.dataTestId} hidden />
       <Box
         {...radioProps}
         cursor="pointer"
