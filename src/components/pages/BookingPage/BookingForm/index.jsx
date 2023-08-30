@@ -14,6 +14,7 @@ import DateInput from "@/components/pages/BookingPage/BookingForm/DateInput";
 import TimeInput from "@/components/pages/BookingPage/BookingForm/TimeInput";
 import GuestInput from "@/components/pages/BookingPage/BookingForm/GuestInput";
 import OccasionInput from "@/components/pages/BookingPage/BookingForm/OccasionInput";
+import { useNavigate } from "react-router-dom";
 
 // options for time
 function BookingForm() {
@@ -27,6 +28,8 @@ function BookingForm() {
   // context
   const { submitNewEntry, isAvailableTime } = useBookingContext();
 
+  // hook for router
+  // const navigate = useNavigate();
   // hook for message
   const toast = useToast();
   // utils function
@@ -48,6 +51,10 @@ function BookingForm() {
         duration: 3000,
       });
       submitNewEntry({ resDate, resTime, resGuest, resOccasion });
+      // This will make test fail , messages will be provided in toast instead
+      // setTimeout(() => {
+      //   navigate("/confirmed-booking");
+      // }, 5000);
     } else {
       toast({
         title: "Not Available",

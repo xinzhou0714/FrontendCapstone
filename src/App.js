@@ -11,6 +11,7 @@ import BookingPage from "@/components/pages/BookingPage";
 import LoginPage from "@/components/pages/LoginPage";
 import AboutPage from "@/components/pages/AboutPage";
 import OrderingPage from "@/components/pages/OrderingPage";
+import ConfirmedBookingPage from "@/components/pages/ConfirmedBookingPage";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           <Route path={"/about"} element={<AboutPage />} />
           <Route path={"/menu"} element={<MenuPage />} />
           <Route path={"/booking"} element={<BookingPage />} />
+          <Route
+            path={"/confirmed-booking"}
+            element={<ConfirmedBookingPage />}
+          />
           <Route path={"/ordering"} element={<OrderingPage />} />
           <Route path={"/login"} element={<LoginPage />} />
           <Route path={"*"} element={<NotFoundPage />} />
